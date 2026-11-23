@@ -1,0 +1,464 @@
+:root {
+    --gold-primary: #d4af37;
+    --gold-light: #f3e5ab;
+    --gold-dark: #aa7c11;
+    --navy-dark: #030712;
+}
+
+body {
+    font-family: 'Montserrat', 'Tajawal', sans-serif;
+    background-color: var(--navy-dark);
+    color: #f8fafc;
+    overflow-x: hidden;
+}
+
+.font-serif-title {
+    font-family: 'Playfair Display', 'Amiri', serif;
+}
+
+.font-cursive {
+    font-family: 'Great Vibes', 'Amiri', cursive;
+}
+
+.font-cinzel {
+    font-family: 'Cinzel Decorative', 'Amiri', serif;
+}
+
+/* Gold Gradient */
+
+.text-gold-gradient {
+    background: linear-gradient(
+        135deg,
+        #bf953f 0%,
+        #fcf6ba 25%,
+        #b38728 50%,
+        #fbf5b7 75%,
+        #aa7c11 100%
+    );
+
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: shineGold 6s linear infinite;
+}
+
+@keyframes shineGold {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Love story timeline: left line on mobile, centered on desktop */
+
+.story-timeline {
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .story-timeline {
+        border-left-width: 0 !important;
+        border-right-width: 0 !important;
+    }
+
+    .story-timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 2px;
+        transform: translateX(-50%);
+        background: rgba(245, 158, 11, 0.3);
+        pointer-events: none;
+        z-index: 0;
+    }
+}
+
+/* Glass Cards */
+
+.glass-card {
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(212, 175, 55, 0.25);
+
+    box-shadow:
+        0 15px 35px -10px rgba(0, 0, 0, 0.9),
+        0 0 15px rgba(212, 175, 55, 0.05);
+
+    transition:
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card::before {
+    content: '';
+
+    position: absolute;
+
+    top: var(--mouse-y, 50%);
+    left: var(--mouse-x, 50%);
+
+    width: 300px;
+    height: 300px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212, 175, 55, 0.15) 0%,
+            transparent 70%
+        );
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+
+    transition: opacity 0.5s ease;
+
+    opacity: 0;
+}
+
+.glass-card:hover::before {
+    opacity: 1;
+}
+
+.glass-card:hover {
+    border-color: rgba(212, 175, 55, 0.6);
+
+    box-shadow:
+        0 20px 45px -10px rgba(0, 0, 0, 0.95),
+        0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+/* Royal Button */
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.shimmer-btn {
+    background:
+        linear-gradient(
+            90deg,
+            #aa7c11 0%,
+            #fcf6ba 50%,
+            #aa7c11 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation: shimmer 3s infinite linear;
+}
+
+/* Glow */
+
+@keyframes pulseGlow {
+    0%,
+    100% {
+        box-shadow:
+            0 0 25px rgba(212, 175, 55, 0.4),
+            inset 0 0 15px rgba(212, 175, 55, 0.2);
+    }
+
+    50% {
+        box-shadow:
+            0 0 55px rgba(212, 175, 55, 0.85),
+            inset 0 0 30px rgba(212, 175, 55, 0.5);
+    }
+}
+
+.glow-pulse {
+    animation: pulseGlow 3s infinite ease-in-out;
+}
+
+/* Envelope */
+
+@keyframes foldAndFly {
+    0% {
+        transform: scale(1) translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    30% {
+        transform: scale(0.9) translateY(20px) rotate(-5deg);
+    }
+
+    100% {
+        transform: scale(0.1) translateY(-1400px) rotate(35deg);
+        opacity: 0;
+    }
+}
+
+.animate-envelope-fly {
+    animation: foldAndFly 1.8s ease-in-out forwards;
+}
+
+/* Ambient Orbs */
+
+.ambient-orb {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    opacity: 0.25;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #030712;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+
+    border-radius: 4px;
+
+    border: 1px solid #d4af37;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #d4af37;
+}
+
+/* VIDEO ENTRANCE */
+
+#entranceOverlay {
+    background: #000;
+    transition: opacity 1.2s ease;
+}
+
+#entranceVideo {
+    object-fit: cover;
+    object-position: center;
+}
+
+#videoStartButton {
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+#videoStartButton.hidden-button {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.9);
+}
+
+/* Smooth cinematic transition */
+#entranceOverlay {
+    opacity: 1;
+    visibility: visible;
+    transition:
+opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1),
+visibility 1.5s;
+}
+
+#mainContent {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(25px);
+    transition:
+opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1),
+transform 1.8s cubic-bezier(0.22, 1, 0.36, 1),
+visibility 0s linear 1.8s;
+}
+
+#mainContent.site-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition:
+opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1),
+transform 1.8s cubic-bezier(0.22, 1, 0.36, 1),
+visibility 0s;
+}
+
+#entranceOverlay.finished {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* ===== Mobile Responsive Fixes ===== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Fix video sizing on mobile browsers */
+#entranceOverlay {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+}
+
+#entranceVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Keep the invitation content within the screen */
+#mainContent {
+    width: 100%;
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+#mainContent img,
+#mainContent iframe {
+    max-width: 100%;
+}
+
+
+/* Mobile control bar - Horizontal scrolling */
+@media (max-width: 640px) {
+
+    body {
+padding-bottom: 100px;
+    }
+
+    #topWidgetBar {
+position: fixed;
+left: 8px;
+right: 8px;
+bottom: calc(10px + env(safe-area-inset-bottom));
+
+width: auto;
+max-width: none;
+
+transform: none;
+
+display: flex;
+flex-wrap: nowrap;
+align-items: center;
+justify-content: flex-start;
+
+gap: 6px;
+padding: 6px 8px;
+
+overflow-x: auto;
+overflow-y: hidden;
+white-space: nowrap;
+
+box-sizing: border-box;
+border-radius: 16px;
+z-index: 40;
+
+-webkit-overflow-scrolling: touch;
+scrollbar-width: none;
+    }
+
+    #topWidgetBar::-webkit-scrollbar {
+display: none;
+    }
+
+    #topWidgetBar > button,
+    #topWidgetBar > select,
+    #topWidgetBar > a,
+    #topWidgetBar > div {
+flex-shrink: 0;
+    }
+
+    #topWidgetBar button,
+    #topWidgetBar select,
+    #topWidgetBar a {
+min-height: 30px;
+padding-top: 5px;
+padding-bottom: 5px;
+line-height: 1.2;
+    }
+
+    #topWidgetBar .h-4.w-px {
+height: 22px;
+flex-shrink: 0;
+    }
+
+    .hero-title {
+overflow-wrap: anywhere;
+word-break: normal;
+letter-spacing: 0.02em;
+    }
+
+    .hero-quote {
+font-size: 16px;
+line-height: 1.8;
+    }
+
+    .hero-badge {
+max-width: 100%;
+letter-spacing: 0.12em;
+line-height: 1.8;
+    }
+
+    .glass-card {
+min-width: 0;
+    }
+
+    .gallery-img {
+transform: none;
+    }
+
+    #rsvpForm input,
+    #rsvpForm select,
+    #rsvpForm textarea {
+width: 100%;
+min-width: 0;
+font-size: 16px;
+    }
+
+    #mapModal > div {
+max-height: 85dvh;
+overflow-y: auto;
+    }
+
+    #mapModal iframe {
+min-height: 240px;
+    }
+}
+
+/* Safe area for phones with a home indicator */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    @media (max-width: 640px) {
+body {
+    padding-bottom: calc(100px + env(safe-area-inset-bottom));
+}
+    }
+}
