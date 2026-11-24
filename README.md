@@ -1,6 +1,6 @@
 # Mostafa & Hasnaa — Wedding Invitation
 
-A royal digital wedding invitation for **Mostafa & Hasnaa**, matching the look and flow of a cinematic single-page invite: entrance door video, music, countdown, love story, gallery, venue details, RSVP, guestbook, and English/Arabic toggle.
+A royal digital wedding invitation for **Ahmed & Eman**, matching the look and flow of a cinematic single-page invite: entrance door video, music, countdown, love story, gallery, venue details, RSVP, guestbook, and English/Arabic toggle.
 
 ## Run locally
 

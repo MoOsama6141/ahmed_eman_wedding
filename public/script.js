@@ -1787,9 +1787,9 @@ function closeMapModal() {
 
 }
   // Disable right-click
-  document.addEventListener("contextmenu", function (e) {
-    e.preventDefault();
-  });
+//   document.addEventListener("contextmenu", function (e) {
+//     e.preventDefault();
+//   });
 
   // Block common DevTools shortcuts
   document.addEventListener("keydown", function (e) {
